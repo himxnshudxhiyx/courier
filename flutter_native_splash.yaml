@@ -1,0 +1,12 @@
+# Regenerate with: fvm dart run flutter_native_splash:create
+# Images come from tool/generate_icon.py. The colour matches the dark theme
+# surface so the launch screen hands off to the app without a flash.
+flutter_native_splash:
+  color: "#171717"
+  image: assets/icon/splash.png
+  android_12:
+    color: "#171717"
+    image: assets/icon/splash_android12.png
+    icon_background_color: "#171717"
+  ios_content_mode: center
+  fullscreen: false

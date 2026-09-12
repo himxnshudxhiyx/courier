@@ -1,10 +1,12 @@
-"""Draws the Courier app icon: an amber paper plane with speed lines on a
-dark gradient, matching the app theme.
+"""Draws the Courier app icon and launch-screen images: an amber paper plane
+with speed lines on a dark gradient, matching the app theme.
 
 Writes to assets/icon/:
   icon.png             full-bleed icon (iOS, legacy Android)
   icon_foreground.png  plane only, transparent, sized for the adaptive-icon safe zone
   icon_background.png  gradient only (adaptive-icon background)
+  splash.png           plane only, for the iOS / pre-Android 12 launch screen
+  splash_android12.png plane only, fitted inside the Android 12+ splash circle
 
 Usage: python3 tool/generate_icon.py
 """
@@ -85,8 +87,8 @@ def glyph(scale):
     return img
 
 
-def save(img, name):
-    img.resize((OUT, OUT), Image.LANCZOS).save(os.path.join(OUT_DIR, name))
+def save(img, name, size=OUT):
+    img.resize((size, size), Image.LANCZOS).save(os.path.join(OUT_DIR, name))
 
 
 def main():
@@ -103,6 +105,11 @@ def main():
     # background, so its glow is kept tighter.
     save(glyph(scale=0.74), 'icon_foreground.png')
     save(background(glow_radius=0.22), 'icon_background.png')
+
+    # flutter_native_splash treats images as 4x: 576 px shows at 144 pt.
+    save(glyph(scale=0.9), 'splash.png', size=576)
+    # Android 12 shows a 240 dp image (960 px) masked to a 160 dp circle.
+    save(glyph(scale=0.6), 'splash_android12.png', size=960)
 
 
 if __name__ == '__main__':

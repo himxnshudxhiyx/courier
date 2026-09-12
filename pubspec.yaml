@@ -57,6 +57,7 @@ dev_dependencies:
   freezed: ^4.0.1
   hive_ce_generator: ^1.11.3
   flutter_launcher_icons: ^0.14.4
+  flutter_native_splash: ^2.4.8
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

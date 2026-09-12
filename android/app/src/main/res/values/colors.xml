@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Matches the app's dark theme surface and the launch screen, so there
+         is no light flash between the splash and Flutter's first frame. -->
+    <color name="courier_launch_background">#171717</color>
+</resources>
