@@ -3,6 +3,7 @@ with speed lines on a dark gradient, matching the app theme.
 
 Writes to assets/icon/:
   icon.png             full-bleed icon (iOS, legacy Android)
+  icon_rounded.png     rounded preview of the icon, used in the README
   icon_foreground.png  plane only, transparent, sized for the adaptive-icon safe zone
   icon_background.png  gradient only (adaptive-icon background)
   splash.png           plane only, for the iOS / pre-Android 12 launch screen
@@ -98,6 +99,13 @@ def main():
     full = bg.convert('RGBA')
     full.alpha_composite(glyph(scale=0.78))
     save(full.convert('RGB'), 'icon.png')
+
+    # Rounded, transparent-cornered copy for the README.
+    mask = Image.new('L', (SS, SS), 0)
+    ImageDraw.Draw(mask).rounded_rectangle((0, 0, SS - 1, SS - 1), radius=int(SS * 0.225), fill=255)
+    rounded = Image.new('RGBA', (SS, SS), (0, 0, 0, 0))
+    rounded.paste(full, (0, 0), mask)
+    save(rounded, 'icon_rounded.png', size=512)
 
     # Adaptive icons crop to the middle ~66%, so the plane is drawn smaller.
     # flutter_launcher_icons insets the adaptive foreground by 16% per side,

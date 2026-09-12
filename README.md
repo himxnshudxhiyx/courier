@@ -1,8 +1,16 @@
-# Courier
+<p align="center">
+  <img src="assets/icon/icon_rounded.png" alt="Courier app icon" width="128" height="128">
+</p>
 
-A mobile API client, like Bruno or Postman, built for phones. Paste a cURL command, adjust the request, send it, and inspect the response without leaving your device.
+<h1 align="center">Courier</h1>
 
-Built with Flutter, clean architecture, Riverpod (codegen), freezed and Hive.
+<p align="center">
+  A mobile API client, like Bruno or Postman, built for phones. Paste a cURL command, adjust the request, send it, and inspect the response without leaving your device.
+</p>
+
+<p align="center">
+  Built with Flutter, clean architecture, Riverpod (codegen), freezed and Hive.
+</p>
 
 ## Features
 
