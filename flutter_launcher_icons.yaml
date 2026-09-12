@@ -1,0 +1,9 @@
+# Regenerate with: fvm dart run flutter_launcher_icons
+# Source images come from tool/generate_icon.py.
+flutter_launcher_icons:
+  image_path: assets/icon/icon.png
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  adaptive_icon_background: assets/icon/icon_background.png
+  adaptive_icon_foreground: assets/icon/icon_foreground.png
